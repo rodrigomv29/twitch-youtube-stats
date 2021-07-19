@@ -1,7 +1,7 @@
 import unittest, sys, os
 
 sys.path.append('../WebTest')
-from Basicweb import app, db
+from Web import app, db
 
 class UsersTests(unittest.TestCase):
 
