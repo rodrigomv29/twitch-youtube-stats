@@ -19,8 +19,24 @@ class BasicTests(unittest.TestCase):
         response = self.app.get('/home', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-    def test_second_page(self):
-        response = self.app.get('/second_page', follow_redirects=True)
+    def test_youtube_page(self):
+        response = self.app.get('/youtube', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_twitch_page(self):
+        response = self.app.get('/twitch', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_page(self):
+        response = self.app.get('/login', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_logout_page(self):
+        response = self.app.get('/logout', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_profile_page(self):
+        response = self.app.get('/profile', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_about_page(self):
