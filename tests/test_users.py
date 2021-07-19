@@ -1,6 +1,6 @@
 import unittest, sys, os
 
-sys.path.append('../WebTest')
+sys.path.append('../Twitch-Youtube-Stats')
 from Web import app, db
 
 class UsersTests(unittest.TestCase):
