@@ -5,10 +5,11 @@ from flask_sqlalchemy import SQLAlchemy
 import time, random, threading
 from turbo_flask import Turbo
 from flask_bcrypt import Bcrypt
-# from flask_behind_proxy import FlaskBehindProxy #Codio solution don't want to use yet
+# from flask_behind_proxy import FlaskBehindProxy # Codio solution don't want to use yet
 from flask_login import UserMixin, LoginManager, login_user, logout_user, current_user, login_required
 
 app = Flask(__name__)
+# proxied = FlaskBehindProxy(app) # Codio solution not yet
 
 app.config['SECRET_KEY'] = 'efefdc92b673d6000695ae349d5b853e'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
