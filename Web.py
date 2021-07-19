@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
-from forms import RegistrationForm, LoginForm
+from forms import RegistrationForm, LoginForm, Searchuser
 from flask_sqlalchemy import SQLAlchemy
 # from audio import printWAV # Audio not used yet
 import time, random, threading
@@ -40,13 +40,21 @@ def home():
 def about():
     return render_template('about.html', subtitle='About', text='This is an about page')
 
-@app.route("/youtube")
+@app.route("/youtube", methods=['GET', 'POST'])
 def youtube():
-    return render_template('youtube.html', subtitle='Youtube',text='Info on your favorite youtuber')
+    form = Searchuser()
+    if form.validate_on_submit():
+        flash(f'Input received as {form.username.data}', 'success')
+        return redirect(url_for('youtube'))
+    return render_template('youtube.html', title='Twitch', form=form)
 
-@app.route("/twitch")
+@app.route("/twitch", methods=['GET', 'POST'])
 def twitch():
-    return render_template('twitch.html', subtitle='Twitch', text='Info on your favorite streamer')
+    form = Searchuser()
+    if form.validate_on_submit():
+        flash(f'Input received as {form.username.data}', 'success')
+        return redirect(url_for('twitch'))
+    return render_template('twitch.html', title='Twitch', form=form)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():

@@ -20,3 +20,8 @@ class LoginForm(FlaskForm):
     remember = BooleanField()
     
     submit = SubmitField('Login')
+
+class Searchuser(FlaskForm):
+    username = StringField('Username',
+                           validators=[DataRequired(), Length(min=2, max=20)])
+    submit = SubmitField('Search')
