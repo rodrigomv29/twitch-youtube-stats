@@ -40,6 +40,14 @@ def home():
 def about():
     return render_template('about.html', subtitle='About', text='This is an about page')
 
+@app.route("/youtube")
+def youtube():
+    return render_template('youtube.html', subtitle='Youtube',text='Info on your favorite youtuber')
+
+@app.route("/twitch")
+def twitch():
+    return render_template('twitch.html', subtitle='Twitch', text='Info on your favorite streamer')
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
