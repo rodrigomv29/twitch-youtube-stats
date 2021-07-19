@@ -91,6 +91,8 @@ def login():
                 remember = request.form.get('Remember') #on if checked, None if not checked
                 if remember == 'on':
                     remember = True
+                else:
+                    remember = False
                 print(remember)
                 flash(f'Logged in as {form.username.data}!', 'success')
                 user = User.query.filter_by(username=form.username.data).first()
